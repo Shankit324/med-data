@@ -10,7 +10,7 @@ interface PageProps {
 
 const contractAddress = process.env.NEXT_PUBLIC_YOUR_DEPLOYED_CONTRACT_ADDRESS || "";
 
-const Demands: React.FC<PageProps> = async ({ params }: PageProps) => {
+const Demands: React.FC<PageProps> = ({ params }: PageProps) => {
   const { username } = React.use(params);
   const [demands, setDemands] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
