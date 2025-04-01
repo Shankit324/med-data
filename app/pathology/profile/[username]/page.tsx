@@ -14,7 +14,11 @@ const Profile: React.FC<PageProps> = ({ params }: PageProps) => {
 
   if (!username) return notFound();
 
-  const hospital: any = await x_val(username);
+  let hospital;
+  let retrieve_x = async () => {
+    hospital = await x_val(username);
+  }
+  retrieve_x();
   if (!hospital) return notFound();
 
   return (
