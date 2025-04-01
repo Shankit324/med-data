@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { getContract } from "@/utils/blockchain";
 import { check } from "@/app/hospital/access";
