@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { getContract } from "@/utils/blockchain";
 import { check } from "@/app/hospital/access";
@@ -7,7 +9,7 @@ interface PageProps {
   params: Promise<{ username: string }>;
 }
 
-const PatientForm: React.FC<PageProps> = async ({ params }: PageProps) => {
+const PatientForm: React.FC<PageProps> = ({ params }: PageProps) => {
   const { username } = React.use(params);
 
   const [formData, setFormData] = useState({
