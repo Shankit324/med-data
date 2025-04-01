@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from 'react';
 import Layout from '@/components/Layout';
@@ -6,15 +6,15 @@ import { notFound } from "next/navigation";
 import { x_val } from "@/app/pathology/access";
 
 interface PageProps {
-  params: { username: string };
+  params: Promise<{ username: string }>;
 }
 
-const Profile: React.FC<PageProps> = ({ params }: PageProps) => {
+const Profile: React.FC<PageProps> = async ({ params }: PageProps) => {
   const { username } = React.use(params);
 
   if (!username) return notFound();
 
-  let hospital;
+  let hospital: any;
   let retrieve_x = async () => {
     hospital = await x_val(username);
   }
