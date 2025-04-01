@@ -9,7 +9,7 @@ interface PageProps {
   params: Promise<{ username: string }>; 
 }
 
-const Home: React.FC<PageProps> = async ({ params }: PageProps) => {
+const Home: React.FC<PageProps> = ({ params }: PageProps) => {
   const { username } = React.use(params);
   if (!username) return notFound();
 
