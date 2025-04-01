@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "deploy": "next start" 
+    "deploy": "npm build && npm start" 
   },
   "dependencies": {
     "next": "15.2.1",
