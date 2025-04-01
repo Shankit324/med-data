@@ -1,0 +1,59 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint Code
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: Build Next.js App
+        run: npm run build
+
+  deploy:
+    needs: lint-test-build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Deploy Frontend
+        run: npm run deploy # Adjust based on hosting provider
+
+      - name: Deploy Smart Contracts
+        run: |
+          npm run compile
+          npx hardhat run scripts/deploy.js --network goerli
