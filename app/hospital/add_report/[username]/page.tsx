@@ -9,7 +9,7 @@ interface PageProps {
   params: Promise<{ username: string }>;
 }
 
-const PatientForm: React.FC<PageProps> = ({ params }: PageProps) => {
+const PatientForm: React.FC<PageProps> = async ({ params }: PageProps) => {
   const { username } = React.use(params);
 
   const [formData, setFormData] = useState({
