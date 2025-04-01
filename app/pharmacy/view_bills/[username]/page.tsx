@@ -12,7 +12,7 @@ interface PageProps {
   params: Promise<{ username: string }>;
 }
 
-const FulfillDemandsPage: React.FC<PageProps> = async ({ params }: PageProps) => {
+const FulfillDemandsPage: React.FC<PageProps> = ({ params }: PageProps) => {
   const { username } = React.use(params);
   if (!username) return notFound();
   const [demands, setDemands] = useState<any[]>([]);
