@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  lint-test-build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -41,11 +41,19 @@ jobs:
       - name: Run Tests
         run: npm run test
 
-      - name: Building Next.js Project
+      - name: Build Next.js Project
         run: npm run build
 
+      - name: Cache Next.js Build
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ github.sha }}
+          restore-keys: |
+              ${{ runner.os }}-nextjs-
+
   deploy:
-    needs: lint-test-build
+    needs: build-and-test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
@@ -75,20 +83,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Cache Next.js Build
-        uses: actions/cache@v4
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ github.sha }}
-          restore-keys: |
-              ${{ runner.os }}-nextjs-
-
-      - name: Deploy Frontend
-        run: npm run deploy # Adjust based on hosting provider
+      - name: Deploy to Vercel
+        run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Smart Contracts
         run: |
           npm run compile
           npx hardhat run scripts/deploy.js --network goerli
-
-  
