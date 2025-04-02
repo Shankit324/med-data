@@ -21,7 +21,7 @@ jobs:
           node-version: 18
           cache: 'npm'
 
-      - name: 🔑 Setup Environment Variables
+      - name: Setup Environment Variables
         run: |
           echo "NEXT_PUBLIC_YOUR_DEPLOYED_CONTRACT_ADDRESS=${{ secrets.NEXT_PUBLIC_YOUR_DEPLOYED_CONTRACT_ADDRESS }}" >> .env.local
           echo "NEXT_PUBLIC_PINATA_API_KEY=${{ secrets.NEXT_PUBLIC_PINATA_API_KEY }}" >> .env.local
@@ -58,7 +58,7 @@ jobs:
           node-version: 18
           cache: 'npm'
 
-      - name: 🔑 Setup Environment Variables
+      - name: Setup Environment Variables
         run: |
           echo "NEXT_PUBLIC_YOUR_DEPLOYED_CONTRACT_ADDRESS=${{ secrets.NEXT_PUBLIC_YOUR_DEPLOYED_CONTRACT_ADDRESS }}" >> .env.local
           echo "NEXT_PUBLIC_PINATA_API_KEY=${{ secrets.NEXT_PUBLIC_PINATA_API_KEY }}" >> .env.local
@@ -74,6 +74,14 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Cache Next.js Build
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ github.sha }}
+          restore-keys: |
+              ${{ runner.os }}-nextjs-
 
       - name: Deploy Frontend
         run: npm run deploy # Adjust based on hosting provider
