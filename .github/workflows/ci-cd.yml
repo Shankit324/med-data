@@ -85,8 +85,3 @@ jobs:
 
       - name: Deploy to Vercel
         run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --yes
-
-      - name: Deploy Smart Contracts
-        run: |
-          npm run compile
-          npx hardhat run scripts/deploy.js --network sepolia
