@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "deploy": "next build && next start"
+    "deploy": "next build && next start",
+    "compile": "npx hardhat compile"
   },
   "dependencies": {
     "next": "15.2.1",
