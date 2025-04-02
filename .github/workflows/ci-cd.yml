@@ -27,4 +27,7 @@ jobs:
       - name: Run Tests
         run: npm run test
 
+      - name: Building Next.js Project
+        run: npm run build
+
   
