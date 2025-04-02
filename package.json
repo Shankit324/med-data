@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "deploy": "deploy": "next build && next start"
+    "deploy": "next build && next start"
   },
   "dependencies": {
     "next": "15.2.1",
