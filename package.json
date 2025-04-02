@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "deploy": "next build && next start" 
+    "deploy": "deploy": "next build && pm2 start npm --name med-data -- start"
   },
   "dependencies": {
     "next": "15.2.1",
