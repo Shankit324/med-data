@@ -58,6 +58,20 @@ jobs:
           node-version: 18
           cache: 'npm'
 
+      - name: 🔑 Setup Environment Variables
+        run: |
+          echo "NEXT_PUBLIC_YOUR_DEPLOYED_CONTRACT_ADDRESS=${{ secrets.NEXT_PUBLIC_YOUR_DEPLOYED_CONTRACT_ADDRESS }}" >> .env.local
+          echo "NEXT_PUBLIC_PINATA_API_KEY=${{ secrets.NEXT_PUBLIC_PINATA_API_KEY }}" >> .env.local
+          echo "NEXT_PUBLIC_PINATA_SECRET=${{ secrets.NEXT_PUBLIC_PINATA_SECRET }}" >> .env.local
+          echo "NEXT_PUBLIC_PINATA_JWT=${{ secrets.NEXT_PUBLIC_PINATA_JWT }}" >> .env.local
+          echo "NEXT_PUBLIC_GATEWAY_URL=${{ secrets.NEXT_PUBLIC_GATEWAY_URL }}" >> .env.local
+
+          echo "TURSO_CONNECTION_URL=${{ secrets.TURSO_CONNECTION_URL }}" >> .env
+          echo "TURSO_AUTH_TOKEN=${{ secrets.TURSO_AUTH_TOKEN }}" >> .env
+          echo "ALCHEMY_API_URL=${{ secrets.ALCHEMY_API_URL }}" >> .env
+          echo "PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}" >> .env
+          echo "ETHERSCAN_API_KEY=${{ secrets.ETHERSCAN_API_KEY }}" >> .env
+
       - name: Install Dependencies
         run: npm install
 
