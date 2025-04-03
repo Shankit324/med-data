@@ -117,7 +117,7 @@ const Demands: React.FC<PageProps> = ({ params }: PageProps) => {
                   <td style={cellStyle}>{demand.pathologyLabUsername}</td>
                   <td style={cellStyle}>{demand.prescribedMedicines}</td>
                   <td style={cellStyle}>{demand.labTests.join(", ")}</td>
-                  <td style={cellStyle}>{demand.patientFormHash ? (<a href={`https://dweb.link/ipfs/${demand.patientFormHash}`} target="_blank" rel="noopener noreferrer">View</a>) : "Pending"}</td>
+                  <td style={cellStyle}>{demand.patientFormHash ? (<a href={`https://ipfs.io/ipfs/${demand.patientFormHash}`} target="_blank" rel="noopener noreferrer">View</a>) : "Pending"}</td>
                   <td style={cellStyle}>{demand.isPharmacyApproved ? "✅" : "❌"}</td>
                   <td style={cellStyle}>{demand.isLabApproved ? "✅" : "❌"}</td>
                   <td style={cellStyle}>{demand.pharmacyReportHash ? (<a href={`https://ipfs.io/ipfs/${demand.pharmacyReportHash}`} target="_blank" rel="noopener noreferrer">View</a>) : "Pending"}</td>
