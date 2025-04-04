@@ -120,8 +120,8 @@ const Demands: React.FC<PageProps> = ({ params }: PageProps) => {
                   <td style={cellStyle}>{demand.patientFormHash ? (<a href={`https://dweb.link/ipfs/${demand.patientFormHash}`} target="_blank" rel="noopener noreferrer">View</a>) : "Pending"}</td>
                   <td style={cellStyle}>{demand.isPharmacyApproved ? "✅" : "❌"}</td>
                   <td style={cellStyle}>{demand.isLabApproved ? "✅" : "❌"}</td>
-                  <td style={cellStyle}>{demand.pharmacyReportHash ? (<a href={`https://ipfs.io/ipfs/${demand.pharmacyReportHash}`} target="_blank" rel="noopener noreferrer">View</a>) : "Pending"}</td>
-                  <td style={cellStyle}>{demand.pathologyReportHash ? (<a href={`https://ipfs.io/ipfs/${demand.pathologyReportHash}`} target="_blank" rel="noopener noreferrer">View</a>) : "Pending"}</td>
+                  <td style={cellStyle}>{demand.pharmacyReportHash ? (<a href={`https://dweb.link/ipfs/${demand.pharmacyReportHash}`} target="_blank" rel="noopener noreferrer">View</a>) : "Pending"}</td>
+                  <td style={cellStyle}>{demand.pathologyReportHash ? (<a href={`https://dweb.link/ipfs/${demand.pathologyReportHash}`} target="_blank" rel="noopener noreferrer">View</a>) : "Pending"}</td>
                   <td style={cellStyle}><button onClick={() => deleteDemand(demand.id)} style={{ backgroundColor: "#ff4d4f", color: "#fff", border: "none", padding: "6px 12px", borderRadius: "4px", cursor: "pointer", fontSize: "13px" }}>Delete</button></td>
                 </tr>
               ))}
