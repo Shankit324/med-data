@@ -137,7 +137,7 @@ const FulfillDemandsPage: React.FC<PageProps> = ({ params }: PageProps) => {
                 </td>
                 <td>
                   {demand[8]
-                    ? <a href={`https://ipfs.io/ipfs/${demand[10]}`}>Click Here</a>
+                    ? <a href={`https://dweb.link/ipfs/${demand[10]}`}>Click Here</a>
                     : "❌ Pending"}
                 </td>
               </tr>
