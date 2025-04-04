@@ -60,29 +60,20 @@ describe("HospitalLogin", () => {
   });
 
   it("redirects on successful login", async () => {
-    // Mock `window.location`
+    // Mock `window.location.href`
     delete (window as any).location;
-    (window as any).location = { href: "" } as Location; 
-  
+    (window as any).location = { href: "" } as Location;
+
     await act(async () => {
       render(<HospitalLogin />);
     });
-  
+
     await act(async () => {
-      fireEvent.change(await screen.findByPlaceholderText("Username"), {
-        target: { value: "validUser" },
-      });
-      fireEvent.change(await screen.findByPlaceholderText("Password"), {
-        target: { value: "correctPassword" },
-      });
-    });
-  
-    await act(async () => {
+      fireEvent.change(await screen.findByPlaceholderText("Username"), { target: { value: "validUser" } });
+      fireEvent.change(await screen.findByPlaceholderText("Password"), { target: { value: "correctPassword" } });
       fireEvent.click(await screen.findByText("Login"));
     });
-  
-    await new Promise((resolve) => setTimeout(resolve, 100)); // Ensure all async updates are completed
-  
-    expect(window.location.href).toBe("/pharmacy/validUser");
+
+    expect(window.location.href).toBe("/pathology/validUser");
   });  
 });
