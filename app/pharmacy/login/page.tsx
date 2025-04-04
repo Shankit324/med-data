@@ -2,7 +2,7 @@
 
 import React, { useState, FormEvent } from 'react';
 import Layout from '../../../components/Layout';
-import { x_val, y_val } from '@/app/pathology/login/submit';
+import { x_val, y_val } from '@/app/pharmacy/login/submit';
 
 const HospitalLogin: React.FC = () => {
   const [username, setUsername] = useState<string>('');
