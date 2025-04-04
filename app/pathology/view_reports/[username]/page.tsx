@@ -159,7 +159,7 @@ const FulfillDemandsPage: React.FC<PageProps> = ({ params }: PageProps) => {
                   <td style={cellStyle}>
                     {demand[9] ? (
                       <a
-                        href={`https://ipfs.io/ipfs/${demand[11]}`}
+                        href={`https://dweb.link/ipfs/${demand[11]}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
