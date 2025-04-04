@@ -4,7 +4,7 @@ import React from "react";
 import { describe, it, expect, vi } from "vitest";
 
 // Mock `x_val` and `y_val` functions
-vi.mock("@/app/pathology/login/submit", () => ({
+vi.mock("@/app/pharmacy/login/submit", () => ({
   x_val: vi.fn((username) => Promise.resolve(username === "validUser")),
   y_val: vi.fn((username, password) =>
     Promise.resolve(username === "validUser" && password === "correctPassword")
@@ -74,6 +74,6 @@ describe("HospitalLogin", () => {
       fireEvent.click(await screen.findByText("Login"));
     });
 
-    expect(window.location.href).toBe("/pathology/validUser");
+    expect(window.location.href).toBe("/pharmacy/validUser");
   });  
 });
